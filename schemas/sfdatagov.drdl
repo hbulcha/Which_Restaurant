@@ -1,0 +1,98 @@
+schema:
+- db: database
+  tables:
+  - table: sfdatagov
+    collection: sfdatagov
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: business_address
+      MongoType: string
+      SqlName: business_address
+      SqlType: varchar
+    - Name: business_city
+      MongoType: string
+      SqlName: business_city
+      SqlType: varchar
+    - Name: business_id
+      MongoType: string
+      SqlName: business_id
+      SqlType: varchar
+    - Name: business_latitude
+      MongoType: string
+      SqlName: business_latitude
+      SqlType: varchar
+    - Name: business_longitude
+      MongoType: string
+      SqlName: business_longitude
+      SqlType: varchar
+    - Name: business_name
+      MongoType: string
+      SqlName: business_name
+      SqlType: varchar
+    - Name: business_phone_number
+      MongoType: string
+      SqlName: business_phone_number
+      SqlType: varchar
+    - Name: business_postal_code
+      MongoType: string
+      SqlName: business_postal_code
+      SqlType: varchar
+    - Name: business_state
+      MongoType: string
+      SqlName: business_state
+      SqlType: varchar
+    - Name: id
+      MongoType: string
+      SqlName: id
+      SqlType: varchar
+    - Name: inspection_date
+      MongoType: string
+      SqlName: inspection_date
+      SqlType: varchar
+    - Name: inspection_id
+      MongoType: string
+      SqlName: inspection_id
+      SqlType: varchar
+    - Name: inspection_score
+      MongoType: string
+      SqlName: inspection_score
+      SqlType: varchar
+    - Name: inspection_type
+      MongoType: string
+      SqlName: inspection_type
+      SqlType: varchar
+    - Name: risk_category
+      MongoType: string
+      SqlName: risk_category
+      SqlType: varchar
+    - Name: violation_description
+      MongoType: string
+      SqlName: violation_description
+      SqlType: varchar
+    - Name: violation_id
+      MongoType: string
+      SqlName: violation_id
+      SqlType: varchar
+  - table: sfdatagov_business_location
+    collection: sfdatagov
+    pipeline:
+    - $unwind:
+        includeArrayIndex: business_location_idx
+        path: $business_location
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: business_location
+      MongoType: string
+      SqlName: business_location
+      SqlType: varchar
+    - Name: business_location_idx
+      MongoType: int
+      SqlName: business_location_idx
+      SqlType: int

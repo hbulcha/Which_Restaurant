@@ -1,0 +1,82 @@
+schema:
+- db: database
+  tables:
+  - table: sf_crimes
+    collection: sf_crimes
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: address
+      MongoType: string
+      SqlName: address
+      SqlType: varchar
+    - Name: category
+      MongoType: string
+      SqlName: category
+      SqlType: varchar
+    - Name: date
+      MongoType: string
+      SqlName: date
+      SqlType: varchar
+    - Name: dayofweek
+      MongoType: string
+      SqlName: dayofweek
+      SqlType: varchar
+    - Name: descript
+      MongoType: string
+      SqlName: descript
+      SqlType: varchar
+    - Name: incidntnum
+      MongoType: string
+      SqlName: incidntnum
+      SqlType: varchar
+    - Name: location.type
+      MongoType: string
+      SqlName: location.type
+      SqlType: varchar
+    - Name: pddistrict
+      MongoType: string
+      SqlName: pddistrict
+      SqlType: varchar
+    - Name: pdid
+      MongoType: string
+      SqlName: pdid
+      SqlType: varchar
+    - Name: resolution
+      MongoType: string
+      SqlName: resolution
+      SqlType: varchar
+    - Name: time
+      MongoType: string
+      SqlName: time
+      SqlType: varchar
+    - Name: x
+      MongoType: string
+      SqlName: x
+      SqlType: varchar
+    - Name: "y"
+      MongoType: string
+      SqlName: "y"
+      SqlType: varchar
+  - table: sf_crimes_location_coordinates
+    collection: sf_crimes
+    pipeline:
+    - $unwind:
+        includeArrayIndex: location.coordinates_idx
+        path: $location.coordinates
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: location.coordinates
+      MongoType: float64
+      SqlName: location.coordinates
+      SqlType: float64
+    - Name: location.coordinates_idx
+      MongoType: int
+      SqlName: location.coordinates_idx
+      SqlType: int

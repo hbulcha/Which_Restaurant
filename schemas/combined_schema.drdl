@@ -1,0 +1,253 @@
+schema:
+- db: database
+  tables:
+  - table: yelp_walkscore
+    collection: yelp_walkscore
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: coordinates.latitude
+      MongoType: float64
+      SqlName: coordinates.latitude
+      SqlType: float64
+    - Name: coordinates.longitude
+      MongoType: float64
+      SqlName: coordinates.longitude
+      SqlType: float64
+    - Name: display_phone
+      MongoType: string
+      SqlName: display_phone
+      SqlType: varchar
+    - Name: id
+      MongoType: string
+      SqlName: id
+      SqlType: varchar
+    - Name: image_url
+      MongoType: string
+      SqlName: image_url
+      SqlType: varchar
+    - Name: is_claimed
+      MongoType: bool
+      SqlName: is_claimed
+      SqlType: boolean
+    - Name: is_closed
+      MongoType: bool
+      SqlName: is_closed
+      SqlType: boolean
+    - Name: location.address1
+      MongoType: string
+      SqlName: location.address1
+      SqlType: varchar
+    - Name: location.address2
+      MongoType: string
+      SqlName: location.address2
+      SqlType: varchar
+    - Name: location.address3
+      MongoType: string
+      SqlName: location.address3
+      SqlType: varchar
+    - Name: location.city
+      MongoType: string
+      SqlName: location.city
+      SqlType: varchar
+    - Name: location.country
+      MongoType: string
+      SqlName: location.country
+      SqlType: varchar
+    - Name: location.cross_streets
+      MongoType: string
+      SqlName: location.cross_streets
+      SqlType: varchar
+    - Name: location.state
+      MongoType: string
+      SqlName: location.state
+      SqlType: varchar
+    - Name: location.zip_code
+      MongoType: string
+      SqlName: location.zip_code
+      SqlType: varchar
+    - Name: name
+      MongoType: string
+      SqlName: name
+      SqlType: varchar
+    - Name: phone
+      MongoType: string
+      SqlName: phone
+      SqlType: varchar
+    - Name: price
+      MongoType: string
+      SqlName: price
+      SqlType: varchar
+    - Name: rating
+      MongoType: float64
+      SqlName: rating
+      SqlType: float64
+    - Name: review_count
+      MongoType: int
+      SqlName: review_count
+      SqlType: int
+    - Name: url
+      MongoType: string
+      SqlName: url
+      SqlType: varchar
+    - Name: walk_score
+      MongoType: int
+      SqlName: walk_score
+      SqlType: int
+  - table: crime_restaurant
+    collection: crime_restaurant
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: crime
+      MongoType: string
+      SqlName: crime
+      SqlType: varchar
+    - Name: restaurant
+      MongoType: string
+      SqlName: restaurant
+      SqlType: varchar
+  - table: sf_crimes
+    collection: sf_crimes
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: address
+      MongoType: string
+      SqlName: address
+      SqlType: varchar
+    - Name: category
+      MongoType: string
+      SqlName: category
+      SqlType: varchar
+    - Name: date
+      MongoType: string
+      SqlName: date
+      SqlType: varchar
+    - Name: dayofweek
+      MongoType: string
+      SqlName: dayofweek
+      SqlType: varchar
+    - Name: descript
+      MongoType: string
+      SqlName: descript
+      SqlType: varchar
+    - Name: incidntnum
+      MongoType: string
+      SqlName: incidntnum
+      SqlType: varchar
+    - Name: location.type
+      MongoType: string
+      SqlName: location.type
+      SqlType: varchar
+    - Name: pddistrict
+      MongoType: string
+      SqlName: pddistrict
+      SqlType: varchar
+    - Name: pdid
+      MongoType: string
+      SqlName: pdid
+      SqlType: varchar
+    - Name: resolution
+      MongoType: string
+      SqlName: resolution
+      SqlType: varchar
+    - Name: time
+      MongoType: string
+      SqlName: time
+      SqlType: varchar
+    - Name: x
+      MongoType: string
+      SqlName: x
+      SqlType: varchar
+    - Name: "y"
+      MongoType: string
+      SqlName: "y"
+      SqlType: varchar
+  - table: sfdatagov
+    collection: sfdatagov
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: business_address
+      MongoType: string
+      SqlName: business_address
+      SqlType: varchar
+    - Name: business_city
+      MongoType: string
+      SqlName: business_city
+      SqlType: varchar
+    - Name: business_id
+      MongoType: string
+      SqlName: business_id
+      SqlType: varchar
+    - Name: business_latitude
+      MongoType: string
+      SqlName: business_latitude
+      SqlType: varchar
+    - Name: business_longitude
+      MongoType: string
+      SqlName: business_longitude
+      SqlType: varchar
+    - Name: business_name
+      MongoType: string
+      SqlName: business_name
+      SqlType: varchar
+    - Name: business_phone_number
+      MongoType: string
+      SqlName: business_phone_number
+      SqlType: varchar
+    - Name: business_postal_code
+      MongoType: string
+      SqlName: business_postal_code
+      SqlType: varchar
+    - Name: business_state
+      MongoType: string
+      SqlName: business_state
+      SqlType: varchar
+    - Name: id
+      MongoType: string
+      SqlName: id
+      SqlType: varchar
+    - Name: inspection_date
+      MongoType: string
+      SqlName: inspection_date
+      SqlType: varchar
+    - Name: inspection_id
+      MongoType: string
+      SqlName: inspection_id
+      SqlType: varchar
+    - Name: inspection_score
+      MongoType: string
+      SqlName: inspection_score
+      SqlType: varchar
+    - Name: inspection_type
+      MongoType: string
+      SqlName: inspection_type
+      SqlType: varchar
+    - Name: risk_category
+      MongoType: string
+      SqlName: risk_category
+      SqlType: varchar
+    - Name: violation_description
+      MongoType: string
+      SqlName: violation_description
+      SqlType: varchar
+    - Name: violation_id
+      MongoType: string
+      SqlName: violation_id
+      SqlType: varchar
+
+

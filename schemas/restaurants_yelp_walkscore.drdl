@@ -1,0 +1,240 @@
+schema:
+- db: database
+  tables:
+  - table: yelp_walkscore
+    collection: yelp_walkscore
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: coordinates.latitude
+      MongoType: float64
+      SqlName: coordinates.latitude
+      SqlType: float64
+    - Name: coordinates.longitude
+      MongoType: float64
+      SqlName: coordinates.longitude
+      SqlType: float64
+    - Name: display_phone
+      MongoType: string
+      SqlName: display_phone
+      SqlType: varchar
+    - Name: id
+      MongoType: string
+      SqlName: id
+      SqlType: varchar
+    - Name: image_url
+      MongoType: string
+      SqlName: image_url
+      SqlType: varchar
+    - Name: is_claimed
+      MongoType: bool
+      SqlName: is_claimed
+      SqlType: boolean
+    - Name: is_closed
+      MongoType: bool
+      SqlName: is_closed
+      SqlType: boolean
+    - Name: location.address1
+      MongoType: string
+      SqlName: location.address1
+      SqlType: varchar
+    - Name: location.address2
+      MongoType: string
+      SqlName: location.address2
+      SqlType: varchar
+    - Name: location.address3
+      MongoType: string
+      SqlName: location.address3
+      SqlType: varchar
+    - Name: location.city
+      MongoType: string
+      SqlName: location.city
+      SqlType: varchar
+    - Name: location.country
+      MongoType: string
+      SqlName: location.country
+      SqlType: varchar
+    - Name: location.cross_streets
+      MongoType: string
+      SqlName: location.cross_streets
+      SqlType: varchar
+    - Name: location.state
+      MongoType: string
+      SqlName: location.state
+      SqlType: varchar
+    - Name: location.zip_code
+      MongoType: string
+      SqlName: location.zip_code
+      SqlType: varchar
+    - Name: name
+      MongoType: string
+      SqlName: name
+      SqlType: varchar
+    - Name: phone
+      MongoType: string
+      SqlName: phone
+      SqlType: varchar
+    - Name: price
+      MongoType: string
+      SqlName: price
+      SqlType: varchar
+    - Name: rating
+      MongoType: float64
+      SqlName: rating
+      SqlType: float64
+    - Name: review_count
+      MongoType: int
+      SqlName: review_count
+      SqlType: int
+    - Name: url
+      MongoType: string
+      SqlName: url
+      SqlType: varchar
+    - Name: walk_score
+      MongoType: int
+      SqlName: walk_score
+      SqlType: int
+  - table: yelp_walkscore_categories
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: categories_idx
+        path: $categories
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: categories.alias
+      MongoType: string
+      SqlName: categories.alias
+      SqlType: varchar
+    - Name: categories.title
+      MongoType: string
+      SqlName: categories.title
+      SqlType: varchar
+    - Name: categories_idx
+      MongoType: int
+      SqlName: categories_idx
+      SqlType: int
+  - table: yelp_walkscore_hours
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: hours_idx
+        path: $hours
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: hours.hours_type
+      MongoType: string
+      SqlName: hours.hours_type
+      SqlType: varchar
+    - Name: hours.is_open_now
+      MongoType: bool
+      SqlName: hours.is_open_now
+      SqlType: boolean
+    - Name: hours_idx
+      MongoType: int
+      SqlName: hours_idx
+      SqlType: int
+  - table: yelp_walkscore_hours_open
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: hours_idx
+        path: $hours
+    - $unwind:
+        includeArrayIndex: hours.open_idx
+        path: $hours.open
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: hours.open.day
+      MongoType: int
+      SqlName: hours.open.day
+      SqlType: int
+    - Name: hours.open.end
+      MongoType: string
+      SqlName: hours.open.end
+      SqlType: varchar
+    - Name: hours.open.is_overnight
+      MongoType: bool
+      SqlName: hours.open.is_overnight
+      SqlType: boolean
+    - Name: hours.open.start
+      MongoType: string
+      SqlName: hours.open.start
+      SqlType: varchar
+    - Name: hours.open_idx
+      MongoType: int
+      SqlName: hours.open_idx
+      SqlType: int
+    - Name: hours_idx
+      MongoType: int
+      SqlName: hours_idx
+      SqlType: int
+  - table: yelp_walkscore_location_display_address
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: location.display_address_idx
+        path: $location.display_address
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: location.display_address
+      MongoType: string
+      SqlName: location.display_address
+      SqlType: varchar
+    - Name: location.display_address_idx
+      MongoType: int
+      SqlName: location.display_address_idx
+      SqlType: int
+  - table: yelp_walkscore_photos
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: photos_idx
+        path: $photos
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: photos
+      MongoType: string
+      SqlName: photos
+      SqlType: varchar
+    - Name: photos_idx
+      MongoType: int
+      SqlName: photos_idx
+      SqlType: int
+  - table: yelp_walkscore_transactions
+    collection: yelp_walkscore
+    pipeline:
+    - $unwind:
+        includeArrayIndex: transactions_idx
+        path: $transactions
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: transactions
+      MongoType: string
+      SqlName: transactions
+      SqlType: varchar
+    - Name: transactions_idx
+      MongoType: int
+      SqlName: transactions_idx
+      SqlType: int

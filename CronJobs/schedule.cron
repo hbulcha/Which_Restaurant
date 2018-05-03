@@ -1,0 +1,1 @@
+* 5 * * * python3 /w205/home/w205_2017_project/ingest_crime_cronjob.py

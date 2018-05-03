@@ -1,0 +1,19 @@
+schema:
+- db: database
+  tables:
+  - table: crime_restaurant
+    collection: crime_restaurant
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: crime
+      MongoType: string
+      SqlName: crime
+      SqlType: varchar
+    - Name: restaurant
+      MongoType: string
+      SqlName: restaurant
+      SqlType: varchar
